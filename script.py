@@ -45,7 +45,7 @@ def main():
         'control_success': pred_proba
     })
     submission.to_csv('./output/submission.csv', index=False)
-    print("✅ 모든 추론 과정이 완료되었습니다!")
+    print("모든 추론 과정이 완료되었습니다")
 
 if __name__ == '__main__':
     main()
