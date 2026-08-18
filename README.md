@@ -20,3 +20,24 @@ lgaimers-pitch-control-prediction/
 ├── requirements.txt         # 📝 제출 환경 패키지 목록
 └── README.md                # 📄 프로젝트 설명서
 ```
+
+## 파이프라인 및 모델 구성
+1. 전처리/모델링(Baseline)
+2. Feature Engineering
+3. Probability Calibration
+4. 모델 추론 규칙
+   - test.csv 내 다른 행을 이용한 통계(평균, 분포, ...) 생성 금지
+   - 예측 확률에 대한 사후 임의 보정 금지
+   - 현재 행의 정보 및 사전에 Train, Trackman 데이터를 통해 생성된 규칙만을 사용하여 추론 진행
+  
+## 실행방법
+1. 환경세팅
+```text
+pip install pandas numpy scikit-learn lightbgm joblib
+```
+2. 데이터 배치
+   - 데이터 data/ 폴더내에 위치
+3. 모델 학습
+   - baseline.ipynb 노트북의 모든 셀을 실행하여 전처리, 모델학습, 로컬자체평가 진행 및 model.pkl과 script.py 생성
+4. 서버제출
+   - model폴더, script.py, requirements.txt를 하나의 .zip으로 압축하여 제출
